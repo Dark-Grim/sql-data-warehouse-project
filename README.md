@@ -11,6 +11,16 @@ This solution follows the **Medallion Architecture**, organizing data into progr
 
 ![Data Architecture](docs/data_architecture.png)
 
+---
+
+## 📈 Data Flow Diagram
+
+The following diagram illustrates the end-to-end flow of data from raw source files through the Bronze, Silver, and Gold layers, showing how data is ingested, transformed, and prepared for analytics.
+
+![Data Flow](docs/data_flow.png)
+
+---
+
 ### 🥉 Bronze Layer — Raw Data
 - Stores data exactly as received from source systems  
 - Ingests CSV files into SQL Server  
