@@ -21,6 +21,14 @@ The following diagram illustrates the end-to-end flow of data from raw source fi
 
 ---
 
+## 🔄 Data Integration Diagram
+
+This diagram shows how CRM and ERP datasets connect using common keys. CRM provides customer, product, and sales data, while ERP adds additional product and customer attributes. These datasets are merged in the Silver layer to create a unified and standardized view for analytics.
+
+![Data Integration](docs/data_integration_model.png)
+
+---
+
 ### 🥉 Bronze Layer — Raw Data
 - Stores data exactly as received from source systems  
 - Ingests CSV files into SQL Server  
