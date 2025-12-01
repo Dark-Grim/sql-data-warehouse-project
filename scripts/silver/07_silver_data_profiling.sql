@@ -29,6 +29,27 @@ SELECT
 	DISTINCT prd_line
 FROM bronze.crm_prd_info
 
+
+SELECT  
+	DISTINCT gen,
+	CASE 
+		WHEN UPPER(TRIM(gen)) IN ('F', 'FEMALE') THEN 'Female'
+		WHEN UPPER(TRIM(gen)) IN ('M', 'MALE') THEN 'Male'
+		ELSE 'Unknown' 
+	END AS new_gen
+FROM bronze.erp_cust_az12
+
+
+SELECT 
+	DISTINCT cntry,
+	CASE
+		WHEN UPPER(TRIM(cntry)) IN ('US', 'USA') THEN 'United States'
+		WHEN UPPER(TRIM(cntry)) = 'DE' THEN 'Germany'
+		WHEN TRIM(cntry) =  '' OR TRIM(cntry) IS NULL THEN 'Unknown'
+		ELSE TRIM(cntry)
+	END AS cntry
+FROM bronze.erp_loc_a101
+
 -- Check for NULLS or Negative Numbers
 SELECT *
 FROM bronze.crm_prd_info
@@ -82,3 +103,27 @@ WHERE sls_sales != sls_quantity * sls_price OR
 	sls_sales <= 0 OR sls_price <= 0 OR sls_quantity <= 0 OR
 	sls_sales IS NULL OR sls_price IS NULL OR sls_quantity IS NULL
 ORDER BY sls_sales, sls_quantity, sls_price
+
+
+-- Identify out of range birth Dates
+
+SELECT  
+	bdate
+FROM bronze.erp_cust_az12
+WHERE bdate < '1924-01-01' OR bdate > GETDATE()
+
+SELECT 
+	DISTINCT cid,
+	REPLACE(cid, '-', '') AS updated_cid
+FROM bronze.erp_loc_a101
+
+
+SELECT 
+	DISTINCT maintenance
+FROM bronze.erp_px_cat_g1v2
+
+SELECT DISTINCT cat_id FROM silver.crm_prd_info
+
+
+-- SP execution 
+-- EXEC silver.sp_load_silver
