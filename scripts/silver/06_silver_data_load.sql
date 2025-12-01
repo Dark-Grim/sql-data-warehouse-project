@@ -1,3 +1,10 @@
+/* =======================================================================
+Script: 06_silver_data_load.sql
+Purpose: Transform and load data into Silver Layer tables, applying Data Cleansing and conforming. 
+	     This Procedure processes data from the Bronze Layer, performs the required transformations, and
+		 logs execution time per table and overall batch duration.
+Author: Jatin Srivastava
+==========================================================================*/
 
 CREATE OR ALTER PROCEDURE silver.sp_load_silver AS
 BEGIN
