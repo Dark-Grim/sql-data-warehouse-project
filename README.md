@@ -86,6 +86,49 @@ SQL queries and BI outputs that generate actionable insights.
 
 ---
 
+## 📁 Project Folder Structure
+
+```bash
+├── datasets/
+│   ├── source_crm/
+│   │   ├── cust_info.csv
+│   │   ├── prd_info.csv
+│   │   └── sales_details.csv
+│   │
+│   ├── source_erp/
+│   │   ├── CUST_AZ12.csv
+│   │   ├── LOC_A101.csv
+│   │   └── PX_CAT_G1V2.csv
+│
+├── docs/
+│   ├── data_architecture.png
+│   ├── data_flow.png
+│   ├── data_integration_model.png
+│   ├── data_model_diagram.png
+│   └── gold_data_catalog.md
+│
+├── scripts/
+│   ├── bronze/
+│   │   ├── 03_ddl_bronze_tables.sql
+│   │   └── 04_sp_bronze_data_load.sql
+│   │
+│   ├── silver/
+│   │   ├── 05_ddl_silver_tables.sql
+│   │   ├── 06_silver_data_load.sql
+│   │   └── 07_silver_data_profiling.sql
+│   │
+│   ├── gold/
+│   │   └── 08_ddl_gold_views.sql
+│   │
+│   ├── 01_init_database.sql
+│   └── 02_db_schema.sql
+│
+├── LICENSE
+└── README.md
+```
+
+---
+
 ## 🛠️ Tools & Resources
 
 - **[Datasets](datasets/)** – Source CSV files used in the project
